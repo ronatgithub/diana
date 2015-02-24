@@ -1,0 +1,12 @@
+{
+  "name": "googleform",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular-google-picker": "~0.1.2",
+    "google-doc": "~0.0.2",
+    "angular-moment": "~0.9.0",
+    "akyral-details": "~1.0.1",
+    "akyral-modal": "~2.3.5",
+    "angular-youtube-mb": "~0.1.6"
+  }
+}

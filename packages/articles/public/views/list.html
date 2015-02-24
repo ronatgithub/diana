@@ -1,0 +1,105 @@
+<section data-ng-controller="ArticlesController" data-ng-init="find(currentUser)">
+  <!--<ul class="articles unstyled">
+    <li data-ng-repeat="article in articles">
+      <span>{{article.created | date:'medium'}}</span> /
+      <span>{{article.user.name}}</span>
+      <h2>
+        <a data-ng-href="#!/articles/{{article._id}}">{{article.title}}</a>
+        <span>
+          <a class="btn" href="/#!/articles/{{article._id}}/edit">
+            <i class="glyphicon glyphicon-edit"></i>
+          </a>
+          <a class="btn" data-ng-click="remove(article);">
+            <i class="glyphicon glyphicon-trash"></i>
+          </a>
+          <a class="btn" data-ng-click="publish(article);">
+            <i class="glyphicon glyphicon-ok"></i>
+          </a>
+        </span>
+      </h2>
+      <div>{{article.content}}</div>
+    </li>
+  </ul>
+  <h1 data-ng-hide="!articles || articles.length">No articles yet. <br> Why don't you <a href="/#!/articles/create">Create One</a>?</h1>-->
+       <!-- <div data-ng-repeat="article in articles" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="box">
+                <div class="box-icon">
+                    <span class="fa fa-4x fa-html5"></span>
+                </div>
+                <div class="info">
+                    <h4 class="text-center">{{article.title}}</h4>
+                    <p>{{article.content}}</p>
+                    <hr>
+                    <a data-ng-href="#!/articles/{{article._id}}" class="btn">mehr erfahren</a>
+                </div>
+            </div>
+        </div> -->
+ 
+
+<div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+        <ul class="event-list">
+          <li data-ng-repeat="article in articles | orderBy: 'tourStartDate'">
+            <time datetime="{{article.tourStartDate}}" ng-class="{'published' : isPublished(article)}">
+              <span class="day">{{article.tourStartDate | amDateFormat:'D'}}</span>
+              <span class="month">{{article.tourStartDate | amDateFormat:'MMM'}}</span>
+              <span class="year">{{article.tourStartDate | amDateFormat:'YYYY'}}</span>
+              <span class="time">8:00 PM</span>
+            </time>
+            <img ng-class="{'saturate' : isPublished(article)}" ng-src="{{article.img}}" />
+            <div class="info">
+              <h2 class="title" ng-class="{'publish' : isPublished(article)}">{{article.overnight + 1}} Tage {{article.title}}
+                <a class="btn" href="/#!/articles/{{article._id}}/edit">
+                  <i class="glyphicon glyphicon-new-window"></i>
+                </a>
+              </h2>
+              <p class="desc" ng-class="{'publish' : isPublished(article)}">Termin: {{article.tourStartDate | amDateFormat:'dddd, MMMM Do YYYY'}}</p>
+              <p class="desc" ng-class="{'publish' : isPublished(article)}">Preis: {{article.price}} Euro</p>
+              <p class="extra" ng-class="{'publish' : isPublished(article)}">Erstellt am {{article.created | amDateFormat:'DD MMMM YYYY'}} von {{article.user.name}}</p>
+              <ul>
+                <!--<li style="width:25%;">
+                  <a class="btn" href="/#!/articles/{{article._id}}/edit">
+                    <i class="glyphicon glyphicon-floppy-save"></i>
+                  </a>
+                </li>
+                <li style="width:25%;">
+                  <a href="javascript:window.print();">
+                    <i class="glyphicon glyphicon-print"></i>
+                  </a>
+                </li>
+                <li style="width:25%;">
+                  <a class="btn" data-ng-click="publish(article);">
+                    <i class="glyphicon glyphicon-ok"></i>
+                  </a>
+                </li>
+                <li style="width:25%;">
+                  <a class="btn" data-ng-click="publish(article);">
+                    <i class="glyphicon glyphicon-eye-open"></i>
+                  </a>
+                </li>-->
+              </ul>
+            </div>
+            <div class="social">
+              <ul>
+                <li class="facebook" style="width:33%;">
+                  <a class="btn" data-ng-click="publish(article);">
+                    <i class="glyphicon glyphicon-ok"></i>
+                  </a>
+                </li>
+                <li class="twitter" style="width:34%;">
+                  <a class="btn" href="/#!/articles/{{article._id}}/edit">
+                    <i class="glyphicon glyphicon-edit"></i>
+                  </a>
+                </li>
+                <li class="google-plus" style="width:33%;"><a class="btn" data-ng-click="remove(article);">
+                    <i class="glyphicon glyphicon-trash"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+
+
+</section>

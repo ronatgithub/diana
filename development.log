@@ -1,0 +1,11 @@
+Loading "Gruntfile.js" tasks...[31mERROR[39m
+[31m>> [39mTypeError: Cannot call method 'push' of undefined
+[33mWarning: Task "default" not found. [4mUsed --force, continuing.[24m[39m
+
+[31mDone, but with warnings.[39m
+
+
+Execution Time (2015-02-21 22:35:20 UTC)
+loading tasks  4.4s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 100%
+Total 4.4s
+

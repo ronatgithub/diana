@@ -1,0 +1,212 @@
+<link rel="import" href="/googleform/assets/lib/google-doc/google-doc.html">
+<link rel="import" href="/googleform/assets/lib/akyral-modal/akyral-modal.html">
+<section data-ng-controller="ArticlesController" data-ng-init="findOne()">
+
+
+<!-- TOP NAV -->
+<div id="top-nav" class="scrollto">
+     <div class="helper">
+          <nav>
+               <a href="#home">Home</a>
+               <a href="#features2">Reisebeschreibung</a>
+               <a href="#video-tour">Video Tour</a>
+               <!--<a href="#screenshots1">Screenshots</a>
+               <a href="#about">Our People</a>
+               <a href="#pricing">Pricing</a>
+               <a href="#contact">Contact</a>-->
+          </nav>
+     </div>
+</div>
+
+
+<div class="overlay-menu">
+     <button type="button" class="overlay-menu-close">X</button>
+     <nav>
+          <ul>
+              <li><a href="#home" class="scroll">Home</a></li>
+              <li><a href="#features2" class="scroll">Reisebeschreibung</a></li>
+              <li><a href="#video-tour" class="scroll">Video Tour</a></li>
+              <!--<li><a href="#pricing" class="scroll">Pricing</a></li>
+              <li><a href="#contact" class="scroll">Contact</a></li>-->
+          </ul>
+     </nav>
+</div>
+
+<!-- HOME -->
+<div id="home" class="home1 image-background" data-background="{{article.img}}">
+
+     <!-- Overlay ( can be deleted ) -->
+     <div id="home-overlay" class="overlay30"></div>
+
+     <!-- Content -->
+     <div id="home_content">
+
+          <!-- Header -->
+          <div id="header">
+     
+               <!-- Logo Image
+               <div id="logo">
+                    <img src="images/logo.png" width="98" height="28" alt="" />
+               </div>
+               -->
+               
+               <!-- Logo text -->
+               <div id="logo-text">
+                    <a href="#!/" class="scroll">Stadtschleicher Reisen</a>
+               </div>
+               
+               <!-- Menu button -->
+               <div class="menu-button" id="open-overlay">
+                  <span class="menu-label">MENU</span>
+                  <div class="menu-lines">
+                       <span class="menu-line"></span>
+                       <span class="menu-line"></span>
+                       <span class="menu-line"></span>
+                  </div>
+               </div>
+
+
+          <div class="clear"></div>
+          </div>
+          <!-- End: Header -->
+          
+          <!-- Intro -->
+          <div id="intro">
+               <h1>
+               {{article.content}}
+               </h1>
+          </div>
+          
+          <!-- Call to action buttons -->
+          <div id="call-to-action">
+               <div class="helper">
+                    <ul>
+                        <li><a href="#" class="call-to-button">Jetzt buchen</a></li>
+                        <li><a href="#features2" class="call-to-button-transparent scroll">Katalog anfordern</a></li>
+                    </ul>
+               </div>
+          </div>
+
+     </div>
+     <!-- End: Content -->
+
+<div class="border-bottom"></div>
+</div>
+<!-- END: HOME -->
+
+<!-- FEATURES STYLE 2 -->
+<div id="features2">
+
+     <!-- Title -->
+     <div class="section_title">
+          <h2>{{article.overnight + 1}} Tage {{article.title}} am {{article.tourStartDate | amDateFormat:'DD MMMM, YYYY'}}</h2>
+          <div class="title_border"></div>
+     </div>
+     
+     <!-- Section Intro -->
+     <div class="section_intro">
+          <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor sollicitudin ligula, 
+          imperdiet pulvinar nibh fringilla non. Integer odio metus, sollicitudin sed neque eu, 
+          feugiat aliquam tortor.
+          </p>
+     </div>
+     
+     <!-- Features + Image -->
+     <div id="features-wrapper">
+
+          <!-- Full list of icons: http://fortawesome.github.io/Font-Awesome/icons/ -->
+
+          <!-- Features left -->
+          <div id="left-features">
+               <!-- 1st feature -->
+               <div class="feature wow slideInLeft">
+                  <button name="button" class="btn btn-lg btn-primary" data-modal="#modal">Reisebeschreibung lesen</button>
+               <div class="clear"></div>
+               </div>
+          </div>
+
+          <!-- Features right -->
+          <div id="right-features">
+               <!-- 4th feature -->
+               <div class="feature wow slideInRight">
+                  <button name="button" class="btn btn-lg btn-default" data-modal="#modal">Katalog anfordern</button>
+               <div class="clear"></div>
+               </div> 
+          </div>
+
+     <div class="clear"></div>
+     </div>
+     <!-- End: Features + Image -->
+</div>
+<!-- END: FEATURES STYLE 2 -->
+
+<!-- VIDEO TOUR -->
+<div id="video-tour">
+     <div class="border-top"></div>
+
+
+     <!-- Title -->
+     <div class="section_title">
+          <h2>VIDEO TOUR</h2>
+          <div class="title_border"></div>
+     </div>
+     
+     <!-- Section Intro -->
+     <div class="section_intro">
+          <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor sollicitudin ligula, 
+          imperdiet pulvinar nibh fringilla non. Integer odio metus, sollicitudin sed neque eu, 
+          feugiat aliquam tortor.
+          </p>
+     </div>
+     
+     <!-- Video -->
+     <div id="video-container">
+          <div class="responsive-video">
+               <youtube-video video-id="travelVideo" width="500" height="281" player-width="'500'" player-height="'281'"></youtube-video>
+          </div>
+     </div>
+
+
+     <div class="border-bottom"></div>
+</div>
+<!-- END: VIDEO TOUR -->
+ 
+<!-- MODAL -->
+<akyral-modal id="modal" role="dialog" aria-labelledby="modal-title" type="swing" pinned="top">
+  <!--<h3 id="modal-title">Reisebeschreibung {{article.overnight +1}} Tage {{article.title}}</h3>-->
+  <google-doc key="{{ article.google }}"></google-doc>
+  <button class="btn btn-large btn-primary" name="button" data-modal="#modal">Schliessen</button>
+</akyral-modal>
+<!-- END: MODAL -->
+
+<!-- <google-doc key="{{ article.google }}"></google-doc> <h2>{{article.overnight + 1}} Tage {{article.title}} am {{article.tourStartDate | amDateFormat:'DD MMMM, YYYY'}}</h2> <span>{{article.created | date:'medium'}}</span> / <span>{{article.user.name}}</span> -->
+
+<script type="text/javascript" src="../googleform/assets/scripts/easing.js"></script>
+<script type="text/javascript" src="../googleform/assets/scripts/modernizr.js"></script>
+<script type="text/javascript" src="../googleform/assets/scripts/fitvids.js"></script>
+<script type="text/javascript" src="../googleform/assets/scripts/backstretch.js"></script>
+<script type="text/javascript" src="../googleform/assets/scripts/swipebox.js"></script>
+<script type="text/javascript" src="../googleform/assets/scripts/flexslider.js"></script>
+<script type="text/javascript" src="../googleform/assets/scripts/tipTip.js"></script>
+<script type="text/javascript" src="../googleform/assets/scripts/wow.js"></script>
+<script type="text/javascript" src="../googleform/assets/scripts/tubular.js"></script>
+<script type="text/javascript" src="../googleform/assets/scripts/menu.js"></script>
+<script type="text/javascript" src="../googleform/assets/scripts/custom.js"></script>
+
+<script>
+/*js for flatApp*/
+ new WOW().init();
+
+/*js for modal*/
+  var buttons = document.querySelectorAll('button');
+  [].forEach.call(buttons, function(button) {
+    button.addEventListener('click', function() {
+      var modal = button.getAttribute('data-modal');
+      document.querySelector(modal).toggle();
+    });
+  });
+</script>
+
+</section>

@@ -1,0 +1,116 @@
+<section data-ng-controller="ArticlesController" data-ng-init="find()">
+  <!-- <ul class="articles unstyled">
+    <li data-ng-repeat="article in articles | filter: {published: true}">
+      <h2>
+        <a data-ng-href="#!/articles/{{article._id}}">{{article.title}}</a>
+        <span data-ng-if="hasAuthorization(article)">
+          <a class="btn" href="/#!/articles/{{article._id}}/edit">
+            <i class="glyphicon glyphicon-edit"></i>
+          </a>
+          <a class="btn" data-ng-click="remove(article);">
+            <i class="glyphicon glyphicon-trash"></i>
+          </a>
+          <a class="btn" data-ng-click="publish(article);">
+            <i class="glyphicon glyphicon-ok"></i>
+          </a>
+        </span>
+      </h2>
+      <span>{{article.created | date:'medium'}}</span> /
+      <span>{{article.user.name}}</span>
+      <div>{{article.content}}</div>
+    </li>
+  </ul> -->
+
+
+
+
+
+        <!--<div data-ng-repeat="article in articles | filter: {published: true}" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="box">
+                <div class="box-icon">
+                    <span class="fa fa-4x fa-html5"></span>
+                </div>
+                <div class="info">
+                    <h4 class="text-center">{{article.title}}</h4>
+                    <p>{{article.content}}</p>
+                    <a data-ng-href="#!/articles/{{article._id}}" class="btn">mehr erfahren</a>
+                </div>
+            </div>
+        </div>-->
+</section>
+
+<!-- FEATURES -->
+<div id="features1" data-ng-controller="ArticlesController" data-ng-init="find()">
+
+     <!-- Feature 1 -->
+     <div data-ng-repeat="article in articles | filter: {published: true} | orderBy: 'tourStartDate'">
+       <div class="feature" ng-class-odd="'odd'" ng-class-even="'even'">
+
+            <!-- Feature content -->
+            <div class="feature_content">
+            
+                  <!-- Details -->
+                  <a data-ng-href="#!/articles/{{article._id}}">
+                    <div class="feature-details wow bounceInUp">
+                  
+                       <h2>{{article.overnight + 1}} Tage {{article.title}}</h2>
+                       <div class="title-separator"></div>
+                            <div class="feature-text">
+                            <p>
+                            ab {{article.price}} Euro, {{article.overnight + 1}} Tage {{article.title}}<br>Reisebeginn im {{article.tourStartDate | amDateFormat:'MMMM'}}, am {{article.tourStartDate | amDateFormat:'dddd'}}, den {{article.tourStartDate | amDateFormat:'DD.MM.YYYY'}}
+                            </p>
+                       </div>
+        
+                    </div>
+                  </a>
+                  
+                  <!-- Image -->
+                  <div class="feature-image wow fadeInUp">
+                       <img src="{{article.img}}" alt="" />
+                  </div>
+
+            <div class="clear"></div>
+            </div>
+            <!-- End: Feature content -->
+
+       </div>    
+     </div>
+     <!-- End: Feature 1 -->
+     
+     <!-- Feature 3 -->
+     <div class="feature full">
+     
+          <!-- Feature content -->
+          <div class="feature_content">
+          
+                <!-- Details -->
+                <div class="feature-details wow fadeIn">
+                
+                     <h2>Stadtschleicher Reisen</h2>
+                     <div class="title-separator"></div>
+                          <div class="feature-text">
+                          <p>
+                          Stadtschleicher Reisen, Obermarkt 13, 02826 Görlitz - Telefon 03581 41 41 63
+Email: reservation@stadtschleicher-görlitz.de - Internet: www.stadtschleicher-görlitz.de
+
+                          </p>
+                     </div>
+      
+                </div>
+                
+                <!-- Image -->
+                <div class="feature-image wow fadeInUp" data-wow-delay="1s">
+                     <!--<img src="images/feature3.png" alt="" />-->
+                </div>
+
+          <div class="clear"></div>
+          </div>
+          <!-- End: Feature content -->
+     
+     <div class="clear"></div>
+     </div>
+     <!-- End: Feature 3 -->
+
+</div>
+<!-- END: FEATURES -->
+

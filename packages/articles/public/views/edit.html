@@ -1,0 +1,92 @@
+<section data-ng-controller="ArticlesController" data-ng-init="findOne()">
+  <form name="articleForm" class="form-horizontal col-md-8" role="form" data-ng-submit="update(articleForm.$valid)" novalidate>
+    
+    <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.title.$invalid }">
+      <label mean-token="'edit-title'" for="title" class="col-md-3 control-label">Title</label>
+      <div class="col-md-9">
+        <input name="title" type="text" class="form-control" data-ng-model="article.title" id="title" placeholder="Title" required>
+        <div ng-show="submitted && articleForm.title.$invalid" class="help-block">
+          <p ng-show="articleForm.title.$error.required">Title is required</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.google.$invalid }">
+      <label mean-token="'edit-doc-id'" for="image" class="col-md-3 control-label">Google Doc Id</label>
+        <div class="col-md-9">
+          <input name="google" type="text" class="form-control" data-ng-model="article.google" id="google" placeholder="Google Doc Id hier einfügen" required>
+          <div ng-show="submitted && articleForm.google.$invalid" class="help-block">
+            <p ng-show="articleForm.google.$error.required">document id is required</p>
+        </div>
+      </div>
+     </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.img.$invalid }">
+      <label mean-token="'edit-foto'" for="image" class="col-md-3 control-label">Foto URL</label>
+        <div class="col-md-9">
+          <input name="img" type="text" class="form-control" data-ng-model="article.img" id="img" placeholder="Foto URL hier einfügen" required>      
+          <div ng-show="submitted && articleForm.img.$invalid" class="help-block">
+            <p ng-show="articleForm.img.$error.required">image is required</p>
+        </div>
+      </div>
+     </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.video.$invalid }">
+      <label mean-token="'edit-video'" for="video" class="col-md-3 control-label">YouTube Video Id</label>
+       <div class="col-md-9">
+         <!--<button ng-switch-when="false" class="btn btn-sm btn-success" href="javascript:;" lk-google-picker picker-files="images">Foto einfügen</button>-->
+          <input name="video" type="text" class="form-control" data-ng-model="article.video" id="video" placeholder="YouTube Video Id hier einfügen" required>
+          <div ng-show="submitted && articleForm.video.$invalid" class="help-block">
+           <p ng-show="articleForm.video.$error.required">video is required</p>
+       </div>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.price.$invalid }">
+      <label mean-token="'edit-reise-preis'" for="price" class="col-md-3 control-label">Reise Preis</label>
+       <div class="col-md-9">
+          <input name="price" type="text" class="form-control" data-ng-model="article.price" id="price" placeholder="Preis per Person" required>
+          <div ng-show="submitted && articleForm.price.$invalid" class="help-block">
+            <p ng-show="articleForm.price.$error.required">price is required</p>
+          </div>
+       </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.tourStartDate.$invalid }">
+      <label mean-token="'edit-tour-start'" for="tourStartDate" class="col-md-3 control-label">Reise Termin</label>
+      <div class="col-md-9">
+        <input name="tourStartDate" type="text" class="form-control" data-ng-model="article.tourStartDate" id="tourStartDate" placeholder="Tour Start Datum" required>
+        <div ng-show="submitted && articleForm.tourStartDate.$invalid" class="help-block">
+          <p ng-show="articleForm.tourStartDate.$error.required">Tour start date is required</p>
+       </div>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.overnight.$invalid }">
+      <label mean-token="'edit-overnight'" for="overnight" class="col-md-3 control-label">Übernachtung</label>
+      <div class="col-md-9">
+        <input name="overnight" type="text" class="form-control" data-ng-model="article.overnight" id="overnight" placeholder="Anzahl der Nächte" required>
+        <div ng-show="submitted && articleForm.overnight.$invalid" class="help-block">
+          <p ng-show="articleForm.overnight.$error.required">overnight is required</p>
+        </div>
+      </div>
+    </div>
+        
+    <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.content.$invalid }">
+      <label mean-token="'edit-content'" for="content" class="col-md-3 control-label">Content</label>
+      <div class="col-md-9">
+        <textarea name="content" data-ng-model="article.content" id="content" cols="30" rows="10" placeholder="Content" class="form-control" required></textarea>
+        <div ng-show="submitted && articleForm.content.$invalid" class="help-block">
+          <p ng-show="articleForm.content.$error.required">Content is required</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="col-md-offset-3 col-md-10">
+        <button mean-token="'edit-submit'" type="submit" class="btn btn-primary">Speichern</button>
+        <button mean-token="'edit-cancel'" type="reset" ng-click="cancel()" class="btn btn-default">Abrechen</button>
+      </div>
+    </div>
+  </form>
+</section>

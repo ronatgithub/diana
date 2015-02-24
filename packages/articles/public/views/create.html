@@ -1,0 +1,114 @@
+<section data-ng-controller="ArticlesController">
+<link rel="import" href="/googleform/assets/lib/google-doc/google-doc.html">
+  <div class="" ng-controller="GoogleformController">
+    <span ng-switch="files.length > 0"><button ng-switch-when="false" class="btn btn-sm btn-danger" href="javascript:;" lk-google-picker picker-files="files">Öffne mein Google Drive</button></span>
+    <div class="row" ng-switch="files.length > 0">
+      
+      <div class="text-center" ng-switch-when="false">
+        <div class="none">noch keine Reise Beschreibung gewählt</div>
+      </div>
+      
+      <div ng-switch-when="true">
+      <form name="articleForm" class="form-horizontal col-md-8" role="form" data-ng-submit="create(articleForm.$valid)" data-ng-init="fileSelected(files)" novalidate>
+
+        <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.title.$invalid }">
+          <label mean-token="'create-title'" class="col-md-3 control-label">Title</label>
+          <div class="col-md-9">
+            <input name="title" type="text" class="form-control" data-ng-model="title" id="title" placeholder="Title hier eingeben" required>
+            <p ng-repeat="file in files" class="help-block" style="font-size:12px;"><span style="font-weight:bold;color:#999;">{{doc_title}}</span> <a href="{{ file.url }}" target="_blank">in Google Docs bearbeiten</a></p>
+            <div ng-show="submitted && articleForm.title.$invalid" class="help-block">
+              <p ng-show="articleForm.title.$error.required">Title is required</p>
+            </div>
+          </div>
+        </div>
+
+        
+        
+
+        <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.img.$invalid }">
+          <label mean-token="'foto'" for="image" class="col-md-3 control-label">Foto</label>
+          <div class="col-md-9">
+            <span ng-switch="images.length > 0">
+              <button ng-switch-when="false" class="btn btn-sm btn-success" href="javascript:;" lk-google-picker picker-files="images">Foto einfügen</button>
+              <input ng-switch-when="true" name="img" type="text" class="form-control" data-ng-model="img" id="img" placeholder="Foto URL hier einfügen"  data-ng-init="imagesSelected(images)" required>
+            </span>
+            <div ng-show="submitted && articleForm.img.$invalid" class="help-block">
+              <p ng-show="articleForm.img.$error.required">image is required</p>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.video.$invalid }">
+          <label mean-token="'video'" for="video" class="col-md-3 control-label">Reise Video</label>
+          <div class="col-md-9">
+            
+              <!--<button ng-switch-when="false" class="btn btn-sm btn-success" href="javascript:;" lk-google-picker picker-files="images">Foto einfügen</button>-->
+              <input name="video" type="text" class="form-control" data-ng-model="video" id="video" placeholder="YouTube Video Id hier einfügen" required>
+            
+            <div ng-show="submitted && articleForm.video.$invalid" class="help-block">
+              <p ng-show="articleForm.video.$error.required">video is required</p>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.price.$invalid }">
+          <label mean-token="'reise-preis'" for="price" class="col-md-3 control-label">Reise Preis</label>
+          <div class="col-md-9">
+           <input name="price" type="text" class="form-control" data-ng-model="price" id="price" placeholder="Preis per Person" required>
+            <div ng-show="submitted && articleForm.price.$invalid" class="help-block">
+              <p ng-show="articleForm.price.$error.required">price is required</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.tourStartDate.$invalid }">
+          <label mean-token="'tour-start'" for="tourStartDate" class="col-md-3 control-label">Reise Termin</label>
+          <div class="col-md-9">
+            <input name="tourStartDate" type="text" class="form-control" data-ng-model="tourStartDate" id="tourStartDate" placeholder="Tour Start Datum" required>
+            <div ng-show="submitted && articleForm.tourStartDate.$invalid" class="help-block">
+              <p ng-show="articleForm.tourStartDate.$error.required">Tour start date is required</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.overnight.$invalid }">
+          <label mean-token="'overnight'" for="overnight" class="col-md-3 control-label">Übernachtung</label>
+          <div class="col-md-9">
+            <input name="overnight" type="text" class="form-control" data-ng-model="overnight" id="overnight" placeholder="Anzahl der Nächte" required>
+            <div ng-show="submitted && articleForm.overnight.$invalid" class="help-block">
+              <p ng-show="articleForm.overnight.$error.required">overnight is required</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.content.$invalid }">
+          <label mean-token="'create-content'" for="content" class="col-md-3 control-label">Reise Beschreibung</label>
+          <div class="col-md-9">
+            <textarea name="content" data-ng-model="content" id="content" cols="30" rows="10" placeholder="Kurz Beschreibung hier eingeben" class="form-control" required></textarea>
+            <div ng-show="submitted && articleForm.content.$invalid" class="help-block">
+              <p ng-show="articleForm.content.$error.required">Content is required</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-offset-3 col-md-9">
+            <button mean-token="'create-submit'" type="submit" class="btn btn-primary">Speichern</button>
+            <button mean-token="'cancel'" type="reset" ng-click="cancel()" class="btn btn-default">Abrechen</button>
+          </div>
+        </div>
+
+        
+
+      </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+

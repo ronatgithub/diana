@@ -1,0 +1,23 @@
+<link rel="import" href="/googleform/assets/lib/google-doc/google-doc.html">
+
+<div class="" ng-controller="GoogleformController">
+  <h1>Example view from your new awesome package</h1>
+  <h2>Package: {{package.name}}</h2>
+  <a href="javascript:;" lk-google-picker picker-files="files">Open my Google Drive</a>
+  
+  <div class="row dashed-border" ng-switch="files.length > 0">
+	            <div class="text-center" ng-switch-when="false">
+	              <div class="none">No files selected yet</div>
+	            </div>
+	            <div ng-switch-when="true">
+	              <div class="col-sm-12" ng-repeat="file in files">
+	                <a href="{{ file.url }}" target="_blank">in Google Docs bearbeiten</a>
+	                  
+	                  <google-doc key="{{ file.id }}"></google-doc>
+	                
+	              </div>
+	            </div>
+  </div>
+
+</div>
+

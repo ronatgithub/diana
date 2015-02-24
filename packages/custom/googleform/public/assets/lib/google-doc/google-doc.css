@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+.title {
+	font-size: 36px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-family: inherit;
+	font-weight: 100;
+	line-height: 1.1;
+	color: inherit;
+}
+
+#contents {
+line-height: 1.1;
+}
