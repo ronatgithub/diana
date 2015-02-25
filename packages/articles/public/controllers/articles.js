@@ -26,7 +26,8 @@ angular.module('mean.articles', ['mean.system', 'mean.googleform'])
           $scope.doc_title = value.name;
           $scope.tourStartDate = moment(value.name.split("N")[0]);         
           $scope.title = value.name.split("-")[3].split(",")[0];
-          $scope.overnight = value.name.split("N")[1].split("-")[0];
+          $scope.overnight = value.name.split("N")[1].split("-")[0].split("#")[0];
+          $scope.price = value.name.split("#")[1].split("-")[0];
           $scope.content = value.description;
         }
       }
