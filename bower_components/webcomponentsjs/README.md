@@ -1,11 +1,8 @@
 webcomponents.js
 ================
 
-<<<<<<< HEAD
-=======
 [![Join the chat at https://gitter.im/webcomponents/webcomponentsjs](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/webcomponents/webcomponentsjs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
->>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
 A suite of polyfills supporting the [Web Components](http://webcomponents.org) specs:
 
 **Custom Elements**: allows authors to define their own custom tags ([spec](https://w3c.github.io/webcomponents/spec/custom/)).
@@ -26,8 +23,6 @@ Pre-built (concatenated & minified) versions of the polyfills are maintained in 
 `webcomponents-lite.js` includes all polyfills except for shadow DOM.
 
 
-<<<<<<< HEAD
-=======
 ## Browser Support
 
 Our polyfills are intended to work in the latest versions of evergreen browsers. See below
@@ -50,7 +45,6 @@ The polyfills may work in older browsers, however require additional polyfills (
 to be used. We cannot guarantee support for browsers outside of our compatibility matrix.
 
 
->>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
 ### Manually Building
 
 If you wish to build the polyfills yourself, you'll need `node` and `gulp` on your system:
@@ -71,12 +65,9 @@ The builds will be placed into the `dist/` directory.
 
 See the [contributing guide](CONTRIBUTING.md)
 
-<<<<<<< HEAD
-=======
 ## License
 
 Everything in this repository is BSD style license unless otherwise specified.
 
 Copyright (c) 2015 The Polymer Authors. All rights reserved.
->>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
 

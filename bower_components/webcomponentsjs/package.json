@@ -1,14 +1,8 @@
 {
   "name": "webcomponents.js",
-<<<<<<< HEAD
-  "version": "0.5.4",
-  "description": "webcomponents.js",
-  "main": "gulpfile.js",
-=======
   "version": "0.5.5",
   "description": "webcomponents.js",
   "main": "webcomponents.js",
->>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
   "directories": {
     "test": "tests"
   },

@@ -7,11 +7,7 @@
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
-<<<<<<< HEAD
-// @version 0.5.4
-=======
 // @version 0.5.5
->>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
 if (typeof WeakMap === "undefined") {
   (function() {
     var defineProperty = Object.defineProperty;
@@ -119,8 +115,6 @@ window.ShadowDOMPolyfill = {};
   getOwnPropertyNames(window);
   function getWrapperConstructor(node) {
     var nativePrototype = node.__proto__ || Object.getPrototypeOf(node);
-<<<<<<< HEAD
-=======
     if (isFirefox) {
       try {
         getOwnPropertyNames(nativePrototype);
@@ -128,7 +122,6 @@ window.ShadowDOMPolyfill = {};
         nativePrototype = nativePrototype.__proto__;
       }
     }
->>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
     var wrapperConstructor = constructorTable.get(nativePrototype);
     if (wrapperConstructor) return wrapperConstructor;
     var parentWrapperConstructor = getWrapperConstructor(nativePrototype);
@@ -202,18 +195,11 @@ window.ShadowDOMPolyfill = {};
       if (descriptor.writable || descriptor.set || isBrokenSafari) {
         if (isEvent) setter = scope.getEventHandlerSetter(name); else setter = getSetter(name);
       }
-<<<<<<< HEAD
-      defineProperty(target, name, {
-        get: getter,
-        set: setter,
-        configurable: descriptor.configurable,
-=======
       var configurable = isBrokenSafari || descriptor.configurable;
       defineProperty(target, name, {
         get: getter,
         set: setter,
         configurable: configurable,
->>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
         enumerable: descriptor.enumerable
       });
     }
@@ -2050,14 +2036,10 @@ window.ShadowDOMPolyfill = {};
     return index;
   }
   function shimSelector(selector) {
-<<<<<<< HEAD
-    return String(selector).replace(/\/deep\//g, " ");
-=======
     return String(selector).replace(/\/deep\/|::shadow/g, " ");
   }
   function shimMatchesSelector(selector) {
     return String(selector).replace(/:host\(([^\s]+)\)/g, "$1").replace(/([^\s]):host/g, "$1").replace(":host", "*").replace(/\^|\/shadow\/|\/shadow-deep\/|::shadow|\/deep\/|::content/g, " ");
->>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
   }
   function findOne(node, selector) {
     var m, el = node.firstElementChild;
@@ -2148,15 +2130,12 @@ window.ShadowDOMPolyfill = {};
       return result;
     }
   };
-<<<<<<< HEAD
-=======
   var MatchesInterface = {
     matches: function(selector) {
       selector = shimMatchesSelector(selector);
       return scope.originalMatches.call(unsafeUnwrap(this), selector);
     }
   };
->>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
   function getElementsByTagNameFiltered(p, index, result, localName, lowercase) {
     var target = unsafeUnwrap(this);
     var list;
@@ -2211,10 +2190,7 @@ window.ShadowDOMPolyfill = {};
   };
   scope.GetElementsByInterface = GetElementsByInterface;
   scope.SelectorsInterface = SelectorsInterface;
-<<<<<<< HEAD
-=======
   scope.MatchesInterface = MatchesInterface;
->>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
 })(window.ShadowDOMPolyfill);
 
 (function(scope) {
@@ -2341,13 +2317,10 @@ window.ShadowDOMPolyfill = {};
 
 (function(scope) {
   "use strict";
-<<<<<<< HEAD
-=======
   if (!window.DOMTokenList) {
     console.warn("Missing DOMTokenList prototype, please include a " + "compatible classList polyfill such as http://goo.gl/uTcepH.");
     return;
   }
->>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
   var unsafeUnwrap = scope.unsafeUnwrap;
   var enqueueMutation = scope.enqueueMutation;
   function getClass(el) {
@@ -2397,10 +2370,7 @@ window.ShadowDOMPolyfill = {};
   var Node = scope.wrappers.Node;
   var ParentNodeInterface = scope.ParentNodeInterface;
   var SelectorsInterface = scope.SelectorsInterface;
-<<<<<<< HEAD
-=======
   var MatchesInterface = scope.MatchesInterface;
->>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
   var addWrapNodeListMethod = scope.addWrapNodeListMethod;
   var enqueueMutation = scope.enqueueMutation;
   var mixin = scope.mixin;
@@ -2455,20 +2425,11 @@ window.ShadowDOMPolyfill = {};
       enqueAttributeChange(this, name, oldValue);
       invalidateRendererBasedOnAttribute(this, name);
     },
-<<<<<<< HEAD
-    matches: function(selector) {
-      return originalMatches.call(unsafeUnwrap(this), selector);
-    },
-=======
->>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
     get classList() {
       var list = classListTable.get(this);
       if (!list) {
         list = unsafeUnwrap(this).classList;
-<<<<<<< HEAD
-=======
         if (!list) return;
->>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
         list.ownerElement_ = this;
         classListTable.set(this, list);
       }
@@ -2501,17 +2462,11 @@ window.ShadowDOMPolyfill = {};
   mixin(Element.prototype, GetElementsByInterface);
   mixin(Element.prototype, ParentNodeInterface);
   mixin(Element.prototype, SelectorsInterface);
-<<<<<<< HEAD
-  registerWrapper(OriginalElement, Element, document.createElementNS(null, "x"));
-  scope.invalidateRendererBasedOnAttribute = invalidateRendererBasedOnAttribute;
-  scope.matchesNames = matchesNames;
-=======
   mixin(Element.prototype, MatchesInterface);
   registerWrapper(OriginalElement, Element, document.createElementNS(null, "x"));
   scope.invalidateRendererBasedOnAttribute = invalidateRendererBasedOnAttribute;
   scope.matchesNames = matchesNames;
   scope.originalMatches = originalMatches;
->>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
   scope.wrappers.Element = Element;
 })(window.ShadowDOMPolyfill);
 
@@ -3156,10 +3111,7 @@ window.ShadowDOMPolyfill = {};
   var Element = scope.wrappers.Element;
   var HTMLElement = scope.wrappers.HTMLElement;
   var registerObject = scope.registerObject;
-<<<<<<< HEAD
-=======
   var defineWrapGetter = scope.defineWrapGetter;
->>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
   var SVG_NS = "http://www.w3.org/2000/svg";
   var svgTitleElement = document.createElementNS(SVG_NS, "title");
   var SVGTitleElement = registerObject(svgTitleElement);
@@ -3169,10 +3121,7 @@ window.ShadowDOMPolyfill = {};
     Object.defineProperty(HTMLElement.prototype, "classList", descr);
     delete Element.prototype.classList;
   }
-<<<<<<< HEAD
-=======
   defineWrapGetter(SVGElement, "ownerSVGElement");
->>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
   scope.wrappers.SVGElement = SVGElement;
 })(window.ShadowDOMPolyfill);
 
