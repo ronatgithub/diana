@@ -7,7 +7,11 @@
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
+<<<<<<< HEAD
+// @version 0.5.4
+=======
 // @version 0.5.5
+>>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
 window.WebComponents = window.WebComponents || {};
 
 (function(scope) {
@@ -51,6 +55,45 @@ window.WebComponents = window.WebComponents || {};
   scope.flags = flags;
 })(WebComponents);
 
+<<<<<<< HEAD
+if (typeof WeakMap === "undefined") {
+  (function() {
+    var defineProperty = Object.defineProperty;
+    var counter = Date.now() % 1e9;
+    var WeakMap = function() {
+      this.name = "__st" + (Math.random() * 1e9 >>> 0) + (counter++ + "__");
+    };
+    WeakMap.prototype = {
+      set: function(key, value) {
+        var entry = key[this.name];
+        if (entry && entry[0] === key) entry[1] = value; else defineProperty(key, this.name, {
+          value: [ key, value ],
+          writable: true
+        });
+        return this;
+      },
+      get: function(key) {
+        var entry;
+        return (entry = key[this.name]) && entry[0] === key ? entry[1] : undefined;
+      },
+      "delete": function(key) {
+        var entry = key[this.name];
+        if (!entry || entry[0] !== key) return false;
+        entry[0] = entry[1] = undefined;
+        return true;
+      },
+      has: function(key) {
+        var entry = key[this.name];
+        if (!entry) return false;
+        return entry[0] === key;
+      }
+    };
+    window.WeakMap = WeakMap;
+  })();
+}
+
+=======
+>>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
 (function(global) {
   var registrationsTable = new WeakMap();
   var setImmediate;
@@ -322,6 +365,10 @@ window.WebComponents = window.WebComponents || {};
         this.addTransientObserver(e.target);
 
        case "DOMNodeInserted":
+<<<<<<< HEAD
+        var target = e.relatedNode;
+=======
+>>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
         var changedNode = e.target;
         var addedNodes, removedNodes;
         if (e.type === "DOMNodeInserted") {
@@ -333,12 +380,20 @@ window.WebComponents = window.WebComponents || {};
         }
         var previousSibling = changedNode.previousSibling;
         var nextSibling = changedNode.nextSibling;
+<<<<<<< HEAD
+        var record = getRecord("childList", target);
+=======
         var record = getRecord("childList", e.target.parentNode);
+>>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
         record.addedNodes = addedNodes;
         record.removedNodes = removedNodes;
         record.previousSibling = previousSibling;
         record.nextSibling = nextSibling;
+<<<<<<< HEAD
+        forEachAncestorAndObserverEnqueueRecord(target, function(options) {
+=======
         forEachAncestorAndObserverEnqueueRecord(e.relatedNode, function(options) {
+>>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
           if (!options.childList) return;
           return record;
         });
@@ -350,6 +405,8 @@ window.WebComponents = window.WebComponents || {};
   if (!global.MutationObserver) global.MutationObserver = JsMutationObserver;
 })(this);
 
+<<<<<<< HEAD
+=======
 if (typeof WeakMap === "undefined") {
   (function() {
     var defineProperty = Object.defineProperty;
@@ -386,6 +443,7 @@ if (typeof WeakMap === "undefined") {
   })();
 }
 
+>>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
 window.HTMLImports = window.HTMLImports || {
   flags: {}
 };
@@ -1009,15 +1067,22 @@ HTMLImports.addModule(function(scope) {
   function isLinkRel(elt, rel) {
     return elt.localName === "link" && elt.getAttribute("rel") === rel;
   }
+<<<<<<< HEAD
+=======
   function hasBaseURIAccessor(doc) {
     return !!Object.getOwnPropertyDescriptor(doc, "baseURI");
   }
+>>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
   function makeDocument(resource, url) {
     var doc = document.implementation.createHTMLDocument(IMPORT_LINK_TYPE);
     doc._URL = url;
     var base = doc.createElement("base");
     base.setAttribute("href", url);
+<<<<<<< HEAD
+    if (!doc.baseURI) {
+=======
     if (!doc.baseURI && !hasBaseURIAccessor(doc)) {
+>>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
       Object.defineProperty(doc, "baseURI", {
         value: url
       });
@@ -1365,6 +1430,13 @@ CustomElements.addModule(function(scope) {
     forDocumentTree(doc, upgradeDocument);
   }
   var originalCreateShadowRoot = Element.prototype.createShadowRoot;
+<<<<<<< HEAD
+  Element.prototype.createShadowRoot = function() {
+    var root = originalCreateShadowRoot.call(this);
+    CustomElements.watchShadow(this);
+    return root;
+  };
+=======
   if (originalCreateShadowRoot) {
     Element.prototype.createShadowRoot = function() {
       var root = originalCreateShadowRoot.call(this);
@@ -1372,6 +1444,7 @@ CustomElements.addModule(function(scope) {
       return root;
     };
   }
+>>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
   scope.watchShadow = watchShadow;
   scope.upgradeDocumentTree = upgradeDocumentTree;
   scope.upgradeSubtree = addedSubtree;

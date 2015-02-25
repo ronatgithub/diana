@@ -1,7 +1,11 @@
 {
   "name": "web-bootstrap",
   "main": "index.js",
+<<<<<<< HEAD
+  "_source": "/home/ronny/meanio/node_modules/meanio/resources/web-bootstrap.js",
+=======
   "_source": "/opt/myApp/node_modules/meanio/resources/web-bootstrap.js",
+>>>>>>> d0faee1df34367b22042c109a7a5b2e0f79ffc14
   "_target": "*",
   "_originalSource": "./node_modules/meanio/resources/web-bootstrap.js"
 }
