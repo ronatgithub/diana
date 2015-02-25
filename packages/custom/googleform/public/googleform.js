@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.googleform', ['lk-google-picker', 'angularMoment', 'youtube-embed'])
+angular.module('mean.googleform', ['lk-google-picker', 'angularMoment', 'youtube-embed', 'angular-loading-bar'])
 
 .config(['lkGoogleSettingsProvider', function(lkGoogleSettingsProvider) {
 

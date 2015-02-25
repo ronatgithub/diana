@@ -35,6 +35,8 @@ Googleform.register(function(app, auth, database) {
 
   Googleform.aggregateAsset('js', '../lib/angular-youtube-mb/src/angular-youtube-embed.js');
 
+    Googleform.aggregateAsset('js', '../lib/angular-loading-bar/src/loading-bar.js');
+
 
   
 
