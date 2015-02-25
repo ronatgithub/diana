@@ -77,7 +77,7 @@ angular.module('mean.articles', ['mean.system', 'mean.googleform'])
           google: doc_id
         });
         article.$save(function(response) {
-          $location.path('articles/' + response._id);
+          $location.path('articles'); /*$location.path('articles/' + response._id);*/
         });
 
         this.title = '';
@@ -119,7 +119,7 @@ angular.module('mean.articles', ['mean.system', 'mean.googleform'])
         article.updated.push(new Date().getTime());
 
         article.$update(function() {
-          $location.path('articles/' + article._id);
+          $location.path('articles'); /*$location.path('articles/' + response._id);*/
         });
       } else {
         $scope.submitted = true;
