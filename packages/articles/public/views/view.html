@@ -3,95 +3,34 @@
 <section data-ng-controller="ArticlesController" data-ng-init="findOne()">
 
 
-<!-- TOP NAV -->
-<div id="top-nav" class="scrollto">
-     <div class="helper">
-          <nav>
-               <a href="#home">Home</a>
-               <a href="#features2">Reisebeschreibung</a>
-               <a href="#video-tour">Video Tour</a>
-               <!--<a href="#screenshots1">Screenshots</a>
-               <a href="#about">Our People</a>
-               <a href="#pricing">Pricing</a>
-               <a href="#contact">Contact</a>-->
-          </nav>
-     </div>
-</div>
 
-
-<div class="overlay-menu">
-     <button type="button" class="overlay-menu-close">X</button>
-     <nav>
-          <ul>
-              <li><a href="#home" class="scroll">Home</a></li>
-              <li><a href="#features2" class="scroll">Reisebeschreibung</a></li>
-              <li><a href="#video-tour" class="scroll">Video Tour</a></li>
-              <!--<li><a href="#pricing" class="scroll">Pricing</a></li>
-              <li><a href="#contact" class="scroll">Contact</a></li>-->
-          </ul>
-     </nav>
-</div>
 
 <!-- HOME -->
-<div id="home" class="home1 image-background" data-background="{{article.img}}">
 
-     <!-- Overlay ( can be deleted ) -->
-     <div id="home-overlay" class="overlay30"></div>
-
-     <!-- Content -->
-     <div id="home_content">
-
-          <!-- Header -->
-          <div id="header">
-     
-               <!-- Logo Image
-               <div id="logo">
-                    <img src="images/logo.png" width="98" height="28" alt="" />
-               </div>
-               -->
-               
-               <!-- Logo text -->
+<div class="carousel fade-carousel slide">
+  
+  <!-- Overlay -->
+  <div class="overlay"></div>
+  
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item slides active">
+      <div style="background-image: url({{article.img}});" class="slide-1"><!-- Logo text -->
                <div id="logo-text">
                     <a href="#!/" class="scroll">Stadtschleicher Reisen</a>
-               </div>
-               
-               <!-- Menu button -->
-               <div class="menu-button" id="open-overlay">
-                  <span class="menu-label">MENU</span>
-                  <div class="menu-lines">
-                       <span class="menu-line"></span>
-                       <span class="menu-line"></span>
-                       <span class="menu-line"></span>
-                  </div>
-               </div>
-
-
-          <div class="clear"></div>
-          </div>
-          <!-- End: Header -->
-          
-          <!-- Intro -->
-          <div id="intro">
-               <h1>
-               {{article.content}}
-               </h1>
-          </div>
-          
-          <!-- Call to action buttons -->
-          <div id="call-to-action">
-               <div class="helper">
-                    <ul>
-                        <li><a href="#" class="call-to-button">Jetzt buchen</a></li>
-                        <li><a href="#features2" class="call-to-button-transparent scroll">Katalog anfordern</a></li>
-                    </ul>
-               </div>
-          </div>
-
-     </div>
-     <!-- End: Content -->
-
-<div class="border-bottom"></div>
+               </div></div>
+      <div class="hero">
+        <hgroup>
+            <h1>{{article.content}}</h1>
+        </hgroup>
+        <button class="btn btn-hero btn-lg" role="button">JETZT BUCHEN</button>
+        <button class="btn btn-hero2 btn-lg" role="button">KATALOG ANFORDERN</button>
+      </div>
+    </div>
+  </div> 
 </div>
+
+
 <!-- END: HOME -->
 
 <!-- FEATURES STYLE 2 -->
@@ -99,7 +38,7 @@
 
      <!-- Title -->
      <div class="section_title">
-          <h2>{{article.overnight + 1}} Tage {{article.title}} am {{article.tourStartDate | amDateFormat:'DD MMMM, YYYY'}}</h2>
+          <h2>{{article.overnight + 1}} Tage {{article.title}} am {{article.tourStartDate | amDateFormat:'D. MMMM, YYYY'}}</h2>
           <div class="title_border"></div>
      </div>
      
@@ -118,7 +57,7 @@
           <!-- Features left -->
           <div id="left-features">
                <!-- 1st feature -->
-               <div class="feature wow slideInLeft">
+               <div class="feature wow slideInLeft" data-wow-offset="50">
                   <button name="button" class="btn btn-lg btn-primary" data-modal="#modal">Reisebeschreibung lesen</button>
                <div class="clear"></div>
                </div>
@@ -127,7 +66,7 @@
           <!-- Features right -->
           <div id="right-features">
                <!-- 4th feature -->
-               <div class="feature wow slideInRight">
+               <div class="feature wow slideInRight" data-wow-offset="50">
                   <button name="button" class="btn btn-lg btn-default" data-modal="#modal">Katalog anfordern</button>
                <div class="clear"></div>
                </div> 
@@ -181,21 +120,14 @@
 
 <!-- <google-doc key="{{ article.google }}"></google-doc> <h2>{{article.overnight + 1}} Tage {{article.title}} am {{article.tourStartDate | amDateFormat:'DD MMMM, YYYY'}}</h2> <span>{{article.created | date:'medium'}}</span> / <span>{{article.user.name}}</span> -->
 
-<script type="text/javascript" src="../googleform/assets/scripts/easing.js"></script>
-<script type="text/javascript" src="../googleform/assets/scripts/modernizr.js"></script>
-<script type="text/javascript" src="../googleform/assets/scripts/fitvids.js"></script>
-<script type="text/javascript" src="../googleform/assets/scripts/backstretch.js"></script>
-<script type="text/javascript" src="../googleform/assets/scripts/swipebox.js"></script>
-<script type="text/javascript" src="../googleform/assets/scripts/flexslider.js"></script>
-<script type="text/javascript" src="../googleform/assets/scripts/tipTip.js"></script>
-<script type="text/javascript" src="../googleform/assets/scripts/wow.js"></script>
-<script type="text/javascript" src="../googleform/assets/scripts/tubular.js"></script>
-<script type="text/javascript" src="../googleform/assets/scripts/menu.js"></script>
-<script type="text/javascript" src="../googleform/assets/scripts/custom.js"></script>
+
 
 <script>
 /*js for flatApp*/
  new WOW().init();
+
+ /*-- FitVids --*/
+ $(".responsive-video").fitVids();
 
 /*js for modal*/
   var buttons = document.querySelectorAll('button');
@@ -208,3 +140,4 @@
 </script>
 
 </section>
+

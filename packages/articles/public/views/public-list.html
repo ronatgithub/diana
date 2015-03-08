@@ -1,3 +1,70 @@
+<div class="top-menu">
+  <div class="page-header" data-ng-controller="HeaderController">
+    <div class="logo pull-left">
+      <a class="navbar-brand" href="https://goo.gl/maps/nNWTE" mean-token="'site-title'"><i class="fa fa-map-marker"></i> Stadtschleicher Reisen, Obermarkt 13, 02826 Görlitz - Telefon 03581 41 41 63</a>
+    </div>
+
+    <div class="left pull-left">
+      <ul class="navbar-nav nav">
+        <li data-ng-repeat="item in menus.main" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
+          <a mean-token="item.link" ui-sref='{{item.link}}'>{{item.title}}</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="account">
+      <div class="text-edit">
+        <div class="pull-right" data-ng-show="global.authenticated" mean-token-editable></div>
+        <div class="pull-right" data-ng-show="global.authenticated" mean-translate></div>
+      </div>
+      <ul class="navbar-nav nav" data-ng-hide="global.authenticated">
+        <li><a ui-sref='auth.login'>Log In</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav nav" data-ng-show="global.authenticated">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            {{global.user.name}} <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/logout">Log Out</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- HOME -->
+
+<div class="carousel fade-carousel slide">
+  
+
+  
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item slides active">
+      <div style="background: rgb(194, 38, 168);" class="slide-1"></div>
+      <div class="hero">
+        <hgroup>
+            <h1 class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.5s">LAST MINUTE DEAL FEBRUAR</h1>
+        </hgroup>
+        <button class="btn btn-hero btn-lg" role="button">JETZT BUCHEN</button>
+        <button class="btn btn-hero2 btn-lg" role="button">KATALOG ANFORDERN</button>
+      </div>
+    </div>
+  </div> 
+</div>
+
+
+<!-- END: HOME -->
+
+<div class="section_title">
+          <h2>Aktuelle Reiseangebote 2015</h2>
+          <div class="title_border"></div>
+     </div>
+
 <section data-ng-controller="ArticlesController" data-ng-init="find()">
   <!-- <ul class="articles unstyled">
     <li data-ng-repeat="article in articles | filter: {published: true}">
@@ -37,43 +104,32 @@
                 </div>
             </div>
         </div>-->
+
+<div class="container row-wrap">
+                <div class="col-md-4" data-ng-repeat="article in articles | filter: {published: true} | orderBy: 'tourStartDate'">
+                    <div class="thumb">
+                        <header class="thumb-header">
+                            <a class="hover-img wow fadeInUp" data-ng-href="#!/articles/{{article._id}}">
+                                <img ng-src="{{article.img}}" alt="Image Alternative text" title="hotel PORTO BAY SERRA GOLF suite">
+                            </a>
+                        </header>
+                        <div class="thumb-caption wow fadeIn">
+                            <h5 class="thumb-title"><a data-ng-href="#!/articles/{{article._id}}">{{article.overnight + 1}} Tage {{article.title}}</a></h5>
+                            <p class="mb0"><small><i class="fa fa-calendar"></i> <strong>{{article.tourStartDate | amDateFormat:'MMMM'}}</strong>, <br> {{article.tourStartDate | amDateFormat:'dddd'}}, den {{article.tourStartDate | amDateFormat:'DD.MM.YYYY'}}</small>
+                            </p>
+                            <p class="mb0 text-darken"><span class="text-lg lh1em text-color">{{article.price}} Euro</span><small> per Person</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+</div>
+
 </section>
 
 <!-- FEATURES -->
 <div id="features1" data-ng-controller="ArticlesController" data-ng-init="find()">
 
-     <!-- Feature 1 -->
-     <div data-ng-repeat="article in articles | filter: {published: true} | orderBy: 'tourStartDate'">
-       <div class="feature" ng-class-odd="'odd'" ng-class-even="'even'">
-
-            <!-- Feature content -->
-            <div class="feature_content">
-            
-                  <!-- Details -->
-                  <a data-ng-href="#!/articles/{{article._id}}">
-                    <div class="feature-details wow bounceInUp">
-                  
-                       <h2>{{article.overnight + 1}} Tage {{article.title}}</h2>
-                       <div class="title-separator"></div>
-                            <div class="feature-text">
-                            <p>
-                            ab {{article.price}} Euro, {{article.overnight + 1}} Tage {{article.title}}<br>Reisebeginn im {{article.tourStartDate | amDateFormat:'MMMM'}}, am {{article.tourStartDate | amDateFormat:'dddd'}}, den {{article.tourStartDate | amDateFormat:'DD.MM.YYYY'}}
-                            </p>
-                       </div>
-        
-                    </div>
-                    <!-- Image -->
-                    <div class="feature-image wow fadeInUp">
-                         <img ng-src="{{article.img}}" alt="" />
-                    </div>
-                  </a>
-            <div class="clear"></div>
-            </div>
-            <!-- End: Feature content -->
-
-       </div>    
-     </div>
-     <!-- End: Feature 1 -->
+     
      
      <!-- Feature 3 -->
      <div class="feature full">
@@ -112,3 +168,9 @@ Email: reservation@stadtschleicher-görlitz.de - Internet: www.stadtschleicher-g
 </div>
 <!-- END: FEATURES -->
 
+<script>
+/*js for flatApp*/
+ new WOW().init();
+
+
+</script>

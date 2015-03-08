@@ -14,6 +14,12 @@ angular.module('mean.articles', ['mean.system', 'mean.googleform'])
   function($scope, $stateParams, $location, Global, Articles) {
     $scope.global = Global;
     $scope.currentUser = $scope.global.user;
+
+    $scope.image = [
+    'http://dl.dropbox.com/u/515046/www/garfield-interior.jpg',
+    'http://dl.dropbox.com/u/515046/www/outside.jpg',
+    'http://dl.dropbox.com/u/515046/www/cheers.jpg'
+    ];
     
     var doc_id = '';
 
