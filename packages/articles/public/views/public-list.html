@@ -38,7 +38,7 @@
 
 <!-- HOME -->
 
-<div class="carousel fade-carousel slide">
+<div class="carousel fade-carousel slide" data-ng-controller="ArticlesController" data-ng-init="getCurrentOffer()">
   
 
   
@@ -48,20 +48,23 @@
       <div style="background: rgb(194, 38, 168);" class="slide-1"></div>
       <div class="hero">
         <hgroup>
-            <h1 class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.5s">LAST MINUTE DEAL FEBRUAR</h1>
+            <h1 class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.1s">Sonderangebot im {{date | amDateFormat:'MMMM'}}</h1>
         </hgroup>
-        <button class="btn btn-hero btn-lg" role="button">JETZT BUCHEN</button>
-        <button class="btn btn-hero2 btn-lg" role="button">KATALOG ANFORDERN</button>
+        <div data-ng-repeat="offer in offers | filter: {published: true} | orderBy: 'tourStartDate' | limitTo : '1'">
+          <h2 class="wow fadeInUp" data-wow-delay="0.9s">{{offer.overnight + 1}} Tage {{offer.title}} jetzt sparen</h2>
+          <a data-ng-href="#!/articles/{{offer._id}}">
+            <button class="btn btn-hero2 btn-lg wow fadeIn" data-wow-delay="1.5s" role="button">MEHR ERFAHREN</button>
+          </a>
+        </div>
       </div>
-    </div>
-  </div> 
-</div>
+    </div> 
+  </div>
 
 
 <!-- END: HOME -->
 
-<div class="section_title">
-          <h2>Aktuelle Reiseangebote 2015</h2>
+<div class="section_title" data-ng-controller="ArticlesController">
+          <h2>Aktuelle Reiseangebote {{date | amDateFormat:'YYYY'}}</h2>
           <div class="title_border"></div>
      </div>
 

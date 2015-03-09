@@ -15,11 +15,7 @@ angular.module('mean.articles', ['mean.system', 'mean.googleform'])
     $scope.global = Global;
     $scope.currentUser = $scope.global.user;
 
-    $scope.image = [
-    'http://dl.dropbox.com/u/515046/www/garfield-interior.jpg',
-    'http://dl.dropbox.com/u/515046/www/outside.jpg',
-    'http://dl.dropbox.com/u/515046/www/cheers.jpg'
-    ];
+    $scope.date = new moment();
     
     var doc_id = '';
 
@@ -37,6 +33,15 @@ angular.module('mean.articles', ['mean.system', 'mean.googleform'])
           $scope.content = value.description;
         }
       }
+    };
+
+    $scope.getCurrentOffer = function(user) {
+      Articles.query(function(articles) {
+          $scope.offers = user ? articles.filter(function(article) {
+              return article.user._id === user._id;
+          }) : articles;
+      });
+      
     };
 
     $scope.imagesSelected = function(images) {
