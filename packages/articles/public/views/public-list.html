@@ -39,9 +39,6 @@
 <!-- HOME -->
 
 <div class="carousel fade-carousel slide" data-ng-controller="ArticlesController" data-ng-init="getCurrentOffer()">
-  
-
-  
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item slides active">
@@ -62,79 +59,36 @@
 </div>
 
 <!-- END: HOME -->
+
 <div id="features2">
-<div class="section_title" data-ng-controller="ArticlesController">
-          <h2>Aktuelle Reiseangebote {{date | amDateFormat:'YYYY'}}</h2>
-          <div class="title_border"></div>
-     </div>
 
-<section data-ng-controller="ArticlesController" data-ng-init="find()">
-  <!-- <ul class="articles unstyled">
-    <li data-ng-repeat="article in articles | filter: {published: true}">
-      <h2>
-        <a data-ng-href="#!/articles/{{article._id}}">{{article.title}}</a>
-        <span data-ng-if="hasAuthorization(article)">
-          <a class="btn" href="/#!/articles/{{article._id}}/edit">
-            <i class="glyphicon glyphicon-edit"></i>
+  <div class="section_title" data-ng-controller="ArticlesController">
+    <h2>Aktuelle Reiseangebote {{date | amDateFormat:'YYYY'}}</h2>
+    <div class="title_border"></div>
+  </div>
+  <section data-ng-controller="ArticlesController" data-ng-init="find()">
+  <div class="container row-wrap">
+    <div class="col-md-4" data-ng-repeat="article in articles | filter: {published: true} | orderBy: 'tourStartDate'">
+      <div class="thumb">
+        <header class="thumb-header">
+          <a class="hover-img wow fadeInUp" data-ng-href="#!/articles/{{article._id}}">
+            <img ng-src="{{article.img}}" alt="Image Alternative text" title="hotel PORTO BAY SERRA GOLF suite">
           </a>
-          <a class="btn" data-ng-click="remove(article);">
-            <i class="glyphicon glyphicon-trash"></i>
-          </a>
-          <a class="btn" data-ng-click="publish(article);">
-            <i class="glyphicon glyphicon-ok"></i>
-          </a>
-        </span>
-      </h2>
-      <span>{{article.created | date:'medium'}}</span> /
-      <span>{{article.user.name}}</span>
-      <div>{{article.content}}</div>
-    </li>
-  </ul> -->
+        </header>
+        <div class="thumb-caption wow fadeIn">
+          <h5 class="thumb-title"><a data-ng-href="#!/articles/{{article._id}}">{{article.overnight + 1}} Tage {{article.title}}</a></h5>
+          <p class="mb0"><small><i class="fa fa-calendar"></i> <strong>{{article.tourStartDate | amDateFormat:'MMMM'}}</strong>, <br> {{article.tourStartDate | amDateFormat:'dddd'}}, den {{article.tourStartDate | amDateFormat:'DD.MM.YYYY'}}</small></p>
+          <p class="mb0 text-darken"><span class="text-lg lh1em text-color">{{article.price}} Euro</span><small> per Person</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
 
-
-
-
-
-        <!--<div data-ng-repeat="article in articles | filter: {published: true}" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="box">
-                <div class="box-icon">
-                    <span class="fa fa-4x fa-html5"></span>
-                </div>
-                <div class="info">
-                    <h4 class="text-center">{{article.title}}</h4>
-                    <p>{{article.content}}</p>
-                    <a data-ng-href="#!/articles/{{article._id}}" class="btn">mehr erfahren</a>
-                </div>
-            </div>
-        </div>-->
-
-<div class="container row-wrap">
-                <div class="col-md-4" data-ng-repeat="article in articles | filter: {published: true} | orderBy: 'tourStartDate'">
-                    <div class="thumb">
-                        <header class="thumb-header">
-                            <a class="hover-img wow fadeInUp" data-ng-href="#!/articles/{{article._id}}">
-                                <img ng-src="{{article.img}}" alt="Image Alternative text" title="hotel PORTO BAY SERRA GOLF suite">
-                            </a>
-                        </header>
-                        <div class="thumb-caption wow fadeIn">
-                            <h5 class="thumb-title"><a data-ng-href="#!/articles/{{article._id}}">{{article.overnight + 1}} Tage {{article.title}}</a></h5>
-                            <p class="mb0"><small><i class="fa fa-calendar"></i> <strong>{{article.tourStartDate | amDateFormat:'MMMM'}}</strong>, <br> {{article.tourStartDate | amDateFormat:'dddd'}}, den {{article.tourStartDate | amDateFormat:'DD.MM.YYYY'}}</small>
-                            </p>
-                            <p class="mb0 text-darken"><span class="text-lg lh1em text-color">{{article.price}} Euro</span><small> per Person</small>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-</div>
-
-</section>
 </div>
 
 <!-- FEATURES -->
 <div id="features1" data-ng-controller="ArticlesController" data-ng-init="find()">
-
-     
-     
      <!-- Feature 3 -->
      <div class="feature full">
      
