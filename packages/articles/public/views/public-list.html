@@ -18,7 +18,7 @@
         <div class="pull-right" data-ng-show="global.authenticated" mean-translate></div>
       </div>
       <ul class="navbar-nav nav" data-ng-hide="global.authenticated">
-        <li><a ui-sref='auth.login'>Log In</a>
+        <li><a href="/auth/google">Log In</a>
         </li>
       </ul>
       <ul class="navbar-nav nav" data-ng-show="global.authenticated">
@@ -61,7 +61,6 @@
 <!-- END: HOME -->
 
 <div id="features2">
-
   <div class="section_title" data-ng-controller="ArticlesController">
     <h2>Aktuelle Reiseangebote {{date | amDateFormat:'YYYY'}}</h2>
     <div class="title_border"></div>
@@ -72,7 +71,7 @@
       <div class="thumb">
         <header class="thumb-header">
           <a class="hover-img wow fadeInUp" data-ng-href="#!/articles/{{article._id}}">
-            <img ng-src="{{article.img}}" alt="Image Alternative text" title="hotel PORTO BAY SERRA GOLF suite">
+            <img ng-src="{{article.img}}" alt="{{article.overnight + 1}} Tage {{article.title}}" title="{{article.overnight + 1}} Tage {{article.title}}">
           </a>
         </header>
         <div class="thumb-caption wow fadeIn">
@@ -84,7 +83,6 @@
     </div>
   </div>
   </section>
-
 </div>
 
 <!-- FEATURES -->
