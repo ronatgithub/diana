@@ -40,7 +40,8 @@ Googleform.aggregateAsset('css', '../css/style/font-awesome.css');
   Googleform.aggregateAsset('js', '../lib/angular-youtube-mb/src/angular-youtube-embed.js');
   
 Googleform.aggregateAsset('js', '../lib/scripts/wow.js',{ weight: -4 });
-Googleform.aggregateAsset('js', '../lib/scripts/fitvids.js',{ weight: -9 });  
+Googleform.aggregateAsset('js', '../lib/scripts/fitvids.js',{ weight: -9 }); 
+
 
   
   /*Googleform.aggregateAsset('js', '../lib/scripts/easing.js',{ weight: -11 });

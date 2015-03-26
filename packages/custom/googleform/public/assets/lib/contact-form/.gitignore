@@ -1,0 +1,6 @@
+# File .gitignore
+
+# Directories:
+tmp/
+tools/
+test/

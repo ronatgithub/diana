@@ -1,5 +1,9 @@
+
+
 <link rel="import" href="/googleform/assets/lib/google-doc/google-doc.html">
 <link rel="import" href="/googleform/assets/lib/akyral-modal/akyral-modal.html">
+<link rel="import" href="/googleform/assets/lib/contact-form/contact-form.html">
+
 <section data-ng-controller="ArticlesController" data-ng-init="findOne()">
 
 
@@ -24,7 +28,7 @@
             <h1>{{article.content}}</h1>
         </hgroup>
         <button class="btn btn-hero btn-lg" role="button">JETZT BUCHEN</button>
-        <a href="http://goo.gl/forms/YyZ70Xll8T"><button class="btn btn-hero2 btn-lg" role="button">KATALOG ANFORDERN</button></a>
+        <a href="http://goo.gl/forms/YyZ70Xll8T" ><button class="btn btn-hero2 btn-lg" role="button"  data-modal="">KATALOG ANFORDERN</button></a><!-- href="http://goo.gl/forms/YyZ70Xll8T" -->
       </div>
     </div>
   </div> 
@@ -67,7 +71,7 @@
           <div id="right-features">
                <!-- 4th feature -->
                <div class="feature wow slideInRight" data-wow-offset="50">
-                  <a href="http://goo.gl/forms/YyZ70Xll8T"><button name="button" class="btn btn-lg btn-default">Katalog anfordern</button>
+                  <a href="http://goo.gl/forms/YyZ70Xll8T" ><button name="button" class="btn btn-lg btn-default" data-modal="">Katalog anfordern</button>
                   </a>
                <div class="clear"></div>
                </div> 
@@ -122,7 +126,7 @@
 <!-- MODAL2 -->
 <akyral-modal id="modal2" role="dialog" aria-labelledby="modal-title" type="flip" position="top">
   <!--<h3 id="modal-title">Reisebeschreibung {{article.overnight +1}} Tage {{article.title}}</h3>-->
-  <h2>hello form here</h2>
+  <contact-form url="https://script.google.com/macros/s/AKfycbzoTKiRmKAEtKMsmXJSwaDyaupiu-xkm2YwdbJKKf6kyMT2jCQ/exec"></contact-form>
 
   <button class="btn btn-large btn-primary" name="button" data-modal="#modal2">Schliessen</button>
 </akyral-modal>

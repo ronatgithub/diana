@@ -8,6 +8,7 @@
     "akyral-details": "~1.0.1",
     "akyral-modal": "~2.3.5",
     "angular-youtube-mb": "~0.1.6",
-    "ng-backstretch": "~0.1.2-beta"
+    "ng-backstretch": "~0.1.2-beta",
+    "contact-form": "0.0.1"
   }
 }
