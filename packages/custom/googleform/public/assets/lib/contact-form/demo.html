@@ -1,18 +1,23 @@
-<!doctype html>
+<!DOCTYPE html>
+
+<!-- HTML Demo to show the contact form WC -->
 <html>
-<head>
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <title>contact-form-wc Demo</title>
 
-  <script src="../webcomponentsjs/webcomponents.min.js"></script>
-  <link rel="import" href="contact-form-wc.html">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Demo for a web component contact form</title>
 
-</head>
-<body unresolved>
+		<!-- Polyfills for old browsers compatibility with polymer -->
+		<script src="bower_components/platform/platform.js"></script>
 
-  <p>An example of using <code>&lt;contact-form-wc&gt;</code>:</p>
+		<!-- Contact form WC import -->
+		<link rel="import" href="pol-elem/contact-form.html">
+	</head>
 
-  <contact-form url="process.php"></contact-form>
+	<body unresolved>
+		<!-- Contact form -->
+		<contact-form url="process.php"></contact-form>
+	</body>
 
-</body>
 </html>

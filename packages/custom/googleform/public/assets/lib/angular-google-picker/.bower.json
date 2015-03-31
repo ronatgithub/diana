@@ -1,6 +1,6 @@
 {
   "name": "angular-google-picker",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "authors": [
     "Loic Kartono <contact@kartono-loic.com>"
   ],
@@ -28,14 +28,13 @@
     "angular": "~1.2.25",
     "angular-mocks": "~1.2.25"
   },
-  "_release": "0.1.2",
+  "_release": "0.1.3",
   "_resolution": {
     "type": "version",
-    "tag": "0.1.2",
-    "commit": "5965114a4239c816d37ad859a79de81c130ba300"
+    "tag": "v0.1.3",
+    "commit": "97d4e09824b97c96ffaabdb59a857fc051b9f6f4"
   },
   "_source": "git://github.com/softmonkeyjapan/angular-google-picker.git",
   "_target": "~0.1.2",
-  "_originalSource": "angular-google-picker",
-  "_direct": true
+  "_originalSource": "angular-google-picker"
 }

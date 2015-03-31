@@ -59,6 +59,7 @@ Not quite!
 * `youtube.player.paused`
 * `youtube.player.buffering`
 * `youtube.player.queued`
+* `youtube.player.error`
 
 Events allow you to keep an eye on the state of things from your controller. For example, if you wanted to a watch a video over and over again forever
 
@@ -74,6 +75,20 @@ myApp.controller('MyCtrl', function ($scope) {
 ```
 
 A full list of `player` methods can be found [here](https://developers.google.com/youtube/iframe_api_reference).
+
+### Player Functions
+
+Add `player` to embedded youtube player to reference Youtube's video player object to use player functions like `playVideo()`, `stopVideo()`:
+
+```html
+<!-- use 'player' to reference player object. -->
+<youtube-video video-id="'sMKoNBRZM1M'" player="bestPlayer"></youtube-video>
+<!-- perform video playback operations -->
+<button ng-click="bestPlayer.playVideo()">Play</button>
+<button ng-click="bestPlayer.stopVideo()">Stop</button>
+```
+
+Note: `playVideo()`, `loadVideoById()` won't work in all mobile environments until user initiates playback.
 
 ### Utilities
 

@@ -1,0 +1,93 @@
+<!-- Polymer dependencies -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../bower_components/core-header-panel/core-header-panel.html">
+<link rel="import" href="../bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="../bower_components/core-ajax/core-ajax.html">
+
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-ripple/paper-ripple.html">
+
+<!-- Polymer element -->
+<polymer-element name="contact-form" attributes="url">
+	<template>
+		<style>
+			:host {
+				font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+
+			core-header-panel {
+				width: 320px;
+				height: 370px;
+				border: 1px #DEE0E4 solid;
+			}
+
+			core-header-panel core-toolbar {
+				width: 100%;
+				height: 60px;
+				background: #2E53B9;
+				color: #FEFAFA;
+			}
+
+			.input {
+				margin-top: 5px;
+			}
+
+			.button {
+				width: 70px;
+				height: 32px;
+				position: relative;
+				background: #2E53B9;
+				color: #FEFAFA;
+			    line-height: 32px;
+				border-radius: 2px;
+	      		font-size: 0.9em;
+	      		margin: 0 auto;
+			}
+		    .center {
+		      	text-align: center;
+		    }  
+		</style>
+		<core-header-panel>
+	    	<core-toolbar>
+	    		<span flex one></span>
+		    	<span flex two>Contact form</span>
+				<span flex></span>
+		    </core-toolbar>
+		    <div>
+			    <div class="input">
+		    		<paper-input type="text" name="name" value="{{name}}" label="Write your name"></paper-input>
+		    	</div>
+		    	<div class="input">
+		    		<paper-input type="email" name="email" value="{{email}}" label="Write your email"></paper-input>
+		    	</div>
+		    	<div class="input">
+					<paper-input multiline floatingLabel rows="3" type="text" name="message" value="{{message}}" label="Send us what you are thinking"></paper-input>
+				</div>
+				<div on-click="{{buttonClick}}" class="button">
+			    	<div class="center" fit>SEND</div>
+			      	<paper-ripple class="recenteringTouch" fit></paper-ripple>
+			    </div>
+		    </div>
+	  	</core-header-panel>
+
+		<core-ajax
+			id="ajaxContactForm" url="{{url}}" method="POST"
+			params='{"name":"{{name}}", "email":"{{email}}", "message": "{{message}}"}'
+			response="{{response}}">
+		</core-ajax>
+	</template>
+	<script>
+		Polymer('contact-form', {
+			buttonClick: function() {
+				this.$.ajaxContactForm.go();
+			}
+		});
+	</script>
+</polymer-element>

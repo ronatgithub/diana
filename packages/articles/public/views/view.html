@@ -1,9 +1,5 @@
 
 
-<link rel="import" href="/googleform/assets/lib/google-doc/google-doc.html">
-<link rel="import" href="/googleform/assets/lib/akyral-modal/akyral-modal.html">
-<link rel="import" href="/googleform/assets/lib/contact-form/contact-form.html">
-
 <section data-ng-controller="ArticlesController" data-ng-init="findOne()">
 
 
@@ -62,7 +58,7 @@
           <div id="left-features">
                <!-- 1st feature -->
                <div class="feature wow slideInLeft" data-wow-offset="50">
-                  <button name="button" class="btn btn-lg btn-primary" data-modal="#modal">Reisebeschreibung lesen</button>
+                  <button name="button" class="btn btn-lg btn-primary" data-modal="">Reisebeschreibung lesen</button>
                <div class="clear"></div>
                </div>
           </div>
@@ -115,22 +111,7 @@
 </div>
 <!-- END: VIDEO TOUR -->
  
-<!-- MODAL -->
-<akyral-modal id="modal" role="dialog" aria-labelledby="modal-title" type="swing" pinned="top">
-  <!--<h3 id="modal-title">Reisebeschreibung {{article.overnight +1}} Tage {{article.title}}</h3>-->
-  <google-doc key="{{ article.google }}"></google-doc>
-  <button class="btn btn-large btn-primary" name="button" data-modal="#modal">Schliessen</button>
-</akyral-modal>
-<!-- END: MODAL -->
 
-<!-- MODAL2 -->
-<akyral-modal id="modal2" role="dialog" aria-labelledby="modal-title" type="flip" position="top">
-  <!--<h3 id="modal-title">Reisebeschreibung {{article.overnight +1}} Tage {{article.title}}</h3>-->
-  <contact-form url="https://script.google.com/macros/s/AKfycbzoTKiRmKAEtKMsmXJSwaDyaupiu-xkm2YwdbJKKf6kyMT2jCQ/exec"></contact-form>
-
-  <button class="btn btn-large btn-primary" name="button" data-modal="#modal2">Schliessen</button>
-</akyral-modal>
-<!-- END: MODAL2 -->
 
 <!-- <google-doc key="{{ article.google }}"></google-doc> <h2>{{article.overnight + 1}} Tage {{article.title}} am {{article.tourStartDate | amDateFormat:'DD MMMM, YYYY'}}</h2> <span>{{article.created | date:'medium'}}</span> / <span>{{article.user.name}}</span> -->
 
@@ -143,14 +124,14 @@
  /*-- FitVids --*/
  $(".responsive-video").fitVids();
 
-/*js for modal*/
+/*js for modal
   var buttons = document.querySelectorAll('button');
   [].forEach.call(buttons, function(button) {
     button.addEventListener('click', function() {
       var modal = button.getAttribute('data-modal');
       document.querySelector(modal).toggle();
     });
-  });
+  });*/
 </script>
 
 </section>
