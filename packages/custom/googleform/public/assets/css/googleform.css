@@ -10,6 +10,26 @@
 	border: 2px dashed
 }
 
+.title {
+  font-size: 36px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-family: inherit;
+  font-weight: 100;
+  line-height: 1.1;
+  color: inherit;
+}
+
+#contents {
+line-height: 1.1;
+}
+
+.modal-header {
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #C226A8;
+  color: #fff;
+}
+
 body { width: 100%; height: 100%; font-weight: normal; /*line-height: 1;*/ font-family: 'Open Sans', sans-serif; font-size: 14px; background: #E6EBEC; }
 
 #logo-text { position: absolute; top: 5%; left: 20%; z-index: 5; }

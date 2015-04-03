@@ -1,5 +1,4 @@
 
-
 <section data-ng-controller="ArticlesController" data-ng-init="findOne()">
 
 
@@ -48,9 +47,13 @@
           Reisepreis pro Person im Doppelzimmer {{article.price}} Euro. Fahrt in modernen Reisebus ab Görlitz und Umgebung. Individuelle Absprachen möglich. Rufen Sie uns an. Stadtschleicher Reisen, Obermarkt 13, 02826 Görlitz - Telefon 03581 41 41 63
           </p>
      </div>
+
+
      
+
+
      <!-- Features + Image -->
-     <div id="features-wrapper">
+     <div ng-controller="ModalDemoCtrl" id="features-wrapper">
 
           <!-- Full list of icons: http://fortawesome.github.io/Font-Awesome/icons/ -->
 
@@ -58,7 +61,7 @@
           <div id="left-features">
                <!-- 1st feature -->
                <div class="feature wow slideInLeft" data-wow-offset="50">
-                  <button name="button" class="btn btn-lg btn-primary" data-modal="">Reisebeschreibung lesen</button>
+                  <button name="button" class="btn btn-lg btn-primary"  ng-click="open('lg')">Reisebeschreibung lesen</button>
                <div class="clear"></div>
                </div>
           </div>
@@ -67,7 +70,7 @@
           <div id="right-features">
                <!-- 4th feature -->
                <div class="feature wow slideInRight" data-wow-offset="50">
-                  <a href="http://goo.gl/forms/YyZ70Xll8T" ><button name="button" class="btn btn-lg btn-default" data-modal="">Katalog anfordern</button>
+                  <a href="http://goo.gl/forms/YyZ70Xll8T" ><button name="button" class="btn btn-lg btn-default"  ng-click="open()">Katalog anfordern</button>
                   </a>
                <div class="clear"></div>
                </div> 
@@ -110,10 +113,8 @@
      <div class="border-bottom"></div>
 </div>
 <!-- END: VIDEO TOUR -->
- 
 
-
-<!-- <google-doc key="{{ article.google }}"></google-doc> <h2>{{article.overnight + 1}} Tage {{article.title}} am {{article.tourStartDate | amDateFormat:'DD MMMM, YYYY'}}</h2> <span>{{article.created | date:'medium'}}</span> / <span>{{article.user.name}}</span> -->
+<!-- <h2>{{article.overnight + 1}} Tage {{article.title}} am {{article.tourStartDate | amDateFormat:'DD MMMM, YYYY'}}</h2> <span>{{article.created | date:'medium'}}</span> / <span>{{article.user.name}}</span> -->
 
 
 
@@ -134,5 +135,19 @@
   });*/
 </script>
 
-</section>
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Stadtschleicher Reisen - Telefon 03581 41 41 63</h3>
+        </div>
+        <div class="modal-body">
+            <div ng-controller="MyCtrl" id="contents">
+              <div ng-bind-html="googleDocContent | sanitize"></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
 
+</section>

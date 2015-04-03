@@ -10,8 +10,8 @@ angular.module('mean.mycustompackage', ['mean.system'])
 angular.module('mean.articles', ['mean.system', 'mean.googleform'])
 .config(['$viewPathProvider', function($viewPathProvider) {
   $viewPathProvider.override('system/views/index.html', 'articles/views/public-list.html');
-}]).controller('ArticlesController', ['$scope', '$stateParams', '$location', 'Global', 'Articles',
-  function($scope, $stateParams, $location, Global, Articles) {
+}]).controller('ArticlesController', ['$scope', '$stateParams', '$location', 'Global', 'Articles', 'shareDataService',
+  function($scope, $stateParams, $location, Global, Articles, shareDataService) {
     $scope.global = Global;
     $scope.currentUser = $scope.global.user;
 
@@ -152,6 +152,8 @@ angular.module('mean.articles', ['mean.system', 'mean.googleform'])
       }, function(article) {
         $scope.article = article;
         $scope.travelVideo = article.video;
+        // get the google document key from article.google and send it to the .service (shareDataService)
+        shareDataService.setKey(article.google);
       });
     };
   }
