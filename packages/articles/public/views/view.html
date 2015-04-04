@@ -23,7 +23,7 @@
             <h1>{{article.content}}</h1>
         </hgroup>
         <button class="btn btn-hero btn-lg" role="button">JETZT BUCHEN</button>
-        <a href="http://goo.gl/forms/YyZ70Xll8T" ><button class="btn btn-hero2 btn-lg" role="button"  data-modal="">KATALOG ANFORDERN</button></a><!-- href="http://goo.gl/forms/YyZ70Xll8T" -->
+        <button ng-controller="ModalCatalogOrderCtrl" class="btn btn-hero2 btn-lg" role="button"  ng-click="open()">KATALOG ANFORDERN</button><!-- href="http://goo.gl/forms/YyZ70Xll8T" -->
       </div>
     </div>
   </div> 
@@ -53,7 +53,7 @@
 
 
      <!-- Features + Image -->
-     <div ng-controller="ModalDemoCtrl" id="features-wrapper">
+     <div id="features-wrapper">
 
           <!-- Full list of icons: http://fortawesome.github.io/Font-Awesome/icons/ -->
 
@@ -61,17 +61,16 @@
           <div id="left-features">
                <!-- 1st feature -->
                <div class="feature wow slideInLeft" data-wow-offset="50">
-                  <button name="button" class="btn btn-lg btn-primary"  ng-click="open('lg')">Reisebeschreibung lesen</button>
-               <div class="clear"></div>
+                  <button ng-controller="ModalGoogleDocCtrl" name="button" class="btn btn-lg btn-primary"  ng-click="open('lg')">Reisebeschreibung lesen</button>
+                  <div class="clear"></div>
                </div>
           </div>
 
-          <!-- Features right -->
+          <!-- Features right  href="http://goo.gl/forms/YyZ70Xll8T"-->
           <div id="right-features">
                <!-- 4th feature -->
                <div class="feature wow slideInRight" data-wow-offset="50">
-                  <a href="http://goo.gl/forms/YyZ70Xll8T" ><button name="button" class="btn btn-lg btn-default"  ng-click="open()">Katalog anfordern</button>
-                  </a>
+                  <button ng-controller="ModalCatalogOrderCtrl" name="button" class="btn btn-lg btn-default"  ng-click="open()">Katalog anfordern</button>
                <div class="clear"></div>
                </div> 
           </div>
@@ -95,11 +94,11 @@
      
      <!-- Section Intro -->
      <div class="section_intro">
-          <p>
+          <!--<p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor sollicitudin ligula, 
           imperdiet pulvinar nibh fringilla non. Integer odio metus, sollicitudin sed neque eu, 
           feugiat aliquam tortor.
-          </p>
+          </p>-->
      </div>
      
      <!-- Video -->
@@ -135,19 +134,59 @@
   });*/
 </script>
 
-    <script type="text/ng-template" id="myModalContent.html">
+    <script type="text/ng-template" id="ModalGoogleDocContent.html">
         <div class="modal-header">
             <h3 class="modal-title">Stadtschleicher Reisen - Telefon 03581 41 41 63</h3>
         </div>
         <div class="modal-body">
-            <div ng-controller="MyCtrl" id="contents">
+            <div ng-controller="googleDocCtrl" id="contents">
               <div ng-bind-html="googleDocContent | sanitize"></div>
             </div>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-primary pull-left" ng-click="ok()">OK, Fenster schließen</button>
+            <!--//<button class="btn btn-warning" ng-click="cancel()">Cancel</button>-->
         </div>
     </script>
 
+    <script type="text/ng-template" id="ModalCatalogOrderContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Kostenlos Katalog anfordern</h3>
+        </div>
+        <form class="form-horizontal" method="get" action="https://script.google.com/macros/s/AKfycbzoTKiRmKAEtKMsmXJSwaDyaupiu-xkm2YwdbJKKf6kyMT2jCQ/exec" accept-charset="UTF-8">
+        <div class="modal-body">
+          <p>Bitte füllen Sie das Formular vollständig aus, wir senden Ihnen umgehend unseren Katalog mit weiteren tollen Angeboten.</p>     
+                <div class="form-group">
+                  <label for="name" class="control-label col-md-2">Ihr Name</label>
+                  <div class="col-md-6">
+                      <input name="name" type="text" class="form-control" placeholder="Vor und Nachname">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="email" class="control-label col-md-2">Email</label>
+                  <div class="col-md-6">
+                      <input name="email" type="text" class="form-control" placeholder="Email Adresse">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="phone" class="control-label col-md-2">Telefon</label>
+                  <div class="col-md-6">
+                      <input name="phone" type="text" class="form-control" placeholder="Vorwahl und Telefon Nummer">
+                  </div>
+                </div>            
+        </div>
+        <div class="modal-footer">
+          <div class="form-group">
+            <div class="col-md-12">
+              <input class="btn btn-primary pull-left col-md-2" type="submit" ng-click="ok()" value="Absenden"/>
+              <input class="btn btn-default pull-left col-md-2" type="reset" ng-click="cancel()" value="Abrechen"/>
+            </div>
+          </div>
+        </div>
+        </form>
+    </script>
+
 </section>
+

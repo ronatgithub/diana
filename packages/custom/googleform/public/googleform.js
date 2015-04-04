@@ -30,7 +30,7 @@ angular.module('mean.googleform', ['lk-google-picker', 'angularMoment', 'youtube
 })
 
 // using a service .factory to get content of published google doc via ajax request
-.controller('MyCtrl', function($scope, $sce, myService, shareDataService) {
+.controller('googleDocCtrl', function($scope, $sce, myService, shareDataService) {
   // using a .service (shareDataService) in article directory to get google document key
   $scope.setKey = shareDataService.getKey();
     myService.getFoos($scope.setKey).then(function(foos) {
@@ -49,16 +49,19 @@ angular.module('mean.googleform', ['lk-google-picker', 'angularMoment', 'youtube
     });
 })
 
-.controller('ModalDemoCtrl', function ($scope, $modal, $log) {
+.controller('ModalGoogleDocCtrl', function ($scope, $modal, $log) {
 
   $scope.items = ['item1', 'item2', 'item3'];
 
   $scope.open = function (size) {
 
     var modalInstance = $modal.open({
-      templateUrl: 'myModalContent.html',
+      templateUrl: 'ModalGoogleDocContent.html',
       controller: 'ModalInstanceCtrl',
       size: size,
+      backdrop: 'static',
+      dialogFade: true,
+      keyboard: true,
       resolve: {
         items: function () {
           return $scope.items;
@@ -74,18 +77,35 @@ angular.module('mean.googleform', ['lk-google-picker', 'angularMoment', 'youtube
   };
 })
 
+.controller('ModalCatalogOrderCtrl', function ($scope, $modal, $log) {
+
+
+  $scope.open = function (size) {
+
+    var modalInstance = $modal.open({
+      templateUrl: 'ModalCatalogOrderContent.html',
+      controller: 'ModalInstanceCtrl',
+      size: size,
+      backdrop: 'static',
+      keyboard: true,
+      resolve: {}
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+})
+
 // Please note that $modalInstance represents a modal window (instance) dependency.
 // It is not the same as the $modal service used above.
 
-.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
-
-  $scope.items = items;
-  $scope.selected = {
-    item: $scope.items[0]
-  };
+.controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
 
   $scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
+    $modalInstance.close();
   };
 
   $scope.cancel = function () {
