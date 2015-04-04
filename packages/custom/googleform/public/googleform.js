@@ -29,8 +29,22 @@ angular.module('mean.googleform', ['lk-google-picker', 'angularMoment', 'youtube
     
 })
 
+//.run(['$window', '$rootScope', function($window, $rootScope) {
+//
+//  $rootScope.$on('$viewContentLoaded', function(){
+//
+//    var interval = setInterval(function(){
+//      if (document.readyState == "complete") {
+//          window.scrollTo(0, 0);
+//          clearInterval(interval);
+//      }
+//    },200);
+//  });
+//
+//}])
+
 // using a service .factory to get content of published google doc via ajax request
-.controller('googleDocCtrl', function($scope, $sce, myService, shareDataService) {
+.controller('googleDocCtrl', function($scope, myService, shareDataService) {
   // using a .service (shareDataService) in article directory to get google document key
   $scope.setKey = shareDataService.getKey();
     myService.getFoos($scope.setKey).then(function(foos) {
@@ -60,7 +74,6 @@ angular.module('mean.googleform', ['lk-google-picker', 'angularMoment', 'youtube
       controller: 'ModalInstanceCtrl',
       size: size,
       backdrop: 'static',
-      dialogFade: true,
       keyboard: true,
       resolve: {
         items: function () {
@@ -78,7 +91,6 @@ angular.module('mean.googleform', ['lk-google-picker', 'angularMoment', 'youtube
 })
 
 .controller('ModalCatalogOrderCtrl', function ($scope, $modal, $log) {
-
 
   $scope.open = function (size) {
 
