@@ -71,7 +71,12 @@
       <div class="thumb">
         <header class="thumb-header">
           <a class="hover-img wow fadeInUp" data-ng-href="#!/articles/{{article._id}}">
-            <img ng-src="{{article.img}}" alt="{{article.overnight + 1}} Tage {{article.title}}" title="{{article.overnight + 1}} Tage {{article.title}}">
+            <div class="carousel fade-carousel slide-16">
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                  <div style="background-image: url({{article.img}});" class="slide-16"></div>
+              </div>
+            </div>
           </a>
         </header>
         <div class="thumb-caption wow fadeIn">
