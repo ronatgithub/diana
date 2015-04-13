@@ -81,7 +81,7 @@
         </header>
         <div class="thumb-caption wow fadeIn">
           <h5 class="thumb-title"><a data-ng-href="#!/articles/{{article._id}}">{{article.overnight + 1}} Tage {{article.title}}</a></h5>
-          <p class="mb0"><small><i class="fa fa-calendar"></i> <strong>{{article.tourStartDate | amDateFormat:'MMMM'}}</strong>, <br> {{article.tourStartDate | amDateFormat:'dddd'}}, den {{article.tourStartDate | amDateFormat:'DD.MM.YYYY'}}</small></p>
+          <p class="mb0"><small><i class="fa fa-calendar"></i> <strong>{{article.tourStartDate | amDateFormat:'MMMM'}}, {{article.tourStartDate | amDateFormat:'dddd'}}, den {{article.tourStartDate | amDateFormat:'DD.MM.YYYY'}}</strong></small></p>
           <p class="mb0 text-darken"><span class="text-lg lh1em text-color">{{article.price}} Euro</span><small> per Person</small></p>
         </div>
       </div>
