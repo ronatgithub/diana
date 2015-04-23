@@ -108,7 +108,7 @@ font-size: 10px;
 }
 
 .text-color {
-color: #C226A8 !important;
+color: #f90 !important;
 font-size: 15px;
 }
 
@@ -143,7 +143,7 @@ line-height: 1em;
 /* END Item List */
 
 /*-- Video Tour --*/
-#video-tour { position: relative; z-index: 100; padding-top: 106px; padding-bottom: 80px; background: #4B6793; }
+#video-tour { position: relative; z-index: 100; padding-top: 106px; padding-bottom: 80px; background: #f90; }
 #video-tour .section_title h2 { color: #FFF; }
 #video-tour .section_title .title_border { background: #E6EBEC; }
 #video-tour .section_intro { color: #FFF; }
@@ -200,7 +200,7 @@ line-height: 1em;
 /*-- Section titles --*/
 .section_title { margin-bottom: 40px; }
 .section_title h2 { margin-bottom: 32px; font-size: 36px; font-weight: 300; text-align: center; color: #000; }
-.section_title .title_border { width: 80px; height: 3px; margin: 0 auto; background: #C226A8; }
+.section_title .title_border { width: 80px; height: 3px; margin: 0 auto; background: #f90; }
 
 
 /*
@@ -293,8 +293,8 @@ Image credits: unsplash.com
 .btn.btn-hero:hover,
 .btn.btn-hero:focus {
     color: #f5f5f5;
-    background-color: #C226A8;
-    border-color: #C226A8;
+    background-color: #f90;
+    border-color: #f90;
     outline: none;
     margin: 20px auto;
 }
