@@ -18,7 +18,7 @@ angular.module('mean.articles', ['mean.system', 'mean.googleform'])
     $scope.date = new moment();
     
     var doc_id = '';
-
+//when google document is select, get values and put them into a scope
     $scope.fileSelected = function(files) {
       console.log(files);
       for(var key in files) {
@@ -154,6 +154,9 @@ angular.module('mean.articles', ['mean.system', 'mean.googleform'])
         $scope.travelVideo = article.video;
         // get the google document key from article.google and send it to the .service (shareDataService)
         shareDataService.setKey(article.google);
+        // construct the fromToDate out of start date and overnights
+        var travelDays = article.overnight;
+        $scope.fromToDate = moment(article.tourStartDate).format('LL') + ' - ' + moment(article.tourStartDate).add(travelDays, 'day').format('LL');
       });
     };
   }
