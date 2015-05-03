@@ -70,6 +70,7 @@
           <label mean-token="'tour-start'" for="tourStartDate" class="col-md-3 control-label">Reise Termin</label>
           <div class="col-md-9">
             <input name="tourStartDate" type="text" class="form-control" data-ng-model="tourStartDate" id="tourStartDate" placeholder="Tour Start Datum" required>
+            <p class="help-block" style="font-size:12px;"><span style="font-weight:bold;color:#999;">Hinweis:</span> Datum im Format JAHR-MONAT-TAG</p>
             <div ng-show="submitted && articleForm.tourStartDate.$invalid" class="help-block">
               <p ng-show="articleForm.tourStartDate.$error.required">Tour start date is required</p>
             </div>
